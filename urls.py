@@ -8,6 +8,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^$', index),
     url(r'^edit/', edit),
+    url(r'^frag/(?P<pid>\d+)', frag),
     url(r'^openid/', include('django_openid_consumer.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )

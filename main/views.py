@@ -89,6 +89,8 @@ def frag(request, pid=None):
         form = FragForm(request.POST, instance=player)
         if form.is_valid():
             frag = Frag(fragger=request.user, feedback=form.cleaned_data['feedback'])
+            frag.save()
+            player.frags.add(frag)
             return HttpResponseRedirect('/tf2recruiter/')
     else:
         form = PlayerForm(instance=player)
