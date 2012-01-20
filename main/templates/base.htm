@@ -1,0 +1,128 @@
+<html>
+    <head>
+        <title>TF2 Recruiter</title>
+        <link rel="stylesheet" href="{{ STATIC_URL }}reset.css" />
+        <style type="text/css">
+        body {
+            background-position:50% 100px;
+            font-family:"Helvetica";
+            background: #3D3D3D url('{{ STATIC_URL }}gradient.png') repeat-x;
+            background-position:0px 100px;
+        }
+        div#header {
+            width:100%;
+            height:100px;
+            margin:auto;
+            background:#000000 url('{{ STATIC_URL }}globalheader_bg.jpg');
+            font-size:6em;
+            font-weight:bold;
+            text-shadow: 2px 2px #999999;
+            text-align:center;
+            line-height:100px;
+            color:#EDEDED;
+            border-bottom:3px solid #444;
+        }
+        div#header a {
+            text-decoration:none;
+            color:#EDEDED;
+        }
+        div#user {
+            float:right;
+            margin:25px 25px;
+            width:225px;
+            height:48px;
+            background:#000 url('http://badges.steamstatus.com/profile/default/steam/{{ user_ }}.png') no-repeat;
+            -moz-border-radius:10px;
+            border-radius:10px;
+            border:1px solid #EDEDED;
+        }
+        div#user a {
+            color:#EDEDED;
+            font-weight:normal;
+            font-size:10px;
+            line-height:24px;
+            text-shadow:none;
+            text-decoration:none;
+            display:block;
+            text-align:left;
+            margin-left:48px;
+        }
+        div#table {
+            background-color:#4e4a48;
+            width:960px;
+            margin:20px auto;
+        }
+        table {
+            position:relative;
+            margin:auto;
+            width:100%;
+            background-color:#4e4a48;
+            table-layout:fixed;
+            //border:2px solid #4e4a48;
+        }
+        th {
+            font-size:1.4em;
+            font-weight:bold;
+            height:40px;
+            line-height:40px;
+            padding-left:10px;
+            text-align:left;
+            color:#FFFFFF;
+        }
+        td {
+            padding:5px 10px;
+            font-weight:bold;
+            font-size:1.1em;
+        }
+        td a, td a:link, td a:visited, td a:active {
+            display:block;
+            text-decoration:none;
+            color:#4e4a48;
+        }
+        td.league a, td.league a:link, td.league a:visited, td.league a:active {
+            display:inline;
+        }
+        tr.alt {
+            background-color:#D2CDC8;
+        }
+        tr {
+            background-color:#FFFFFF;;
+            color:#4e4a48;
+            height:20px;
+            line-height:20px;
+        }
+        thead tr, tfoot tr {
+            background-color:#4e4a48;
+        }
+        tfoot {
+            text-align:center;
+        }
+        div#table img {
+            width:20px;
+            height:20px;
+        }
+        div#table li {
+            float:left;
+            margin-right:20px;
+        }
+        .errorlist {
+            font-size:1em;
+            color:#900;
+        }
+        .errorlist ul {
+            font-size:.8em;
+            color:#4e4a48;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <a href="/tf2recruiter/">TF2 Recruiter</a>
+            <div id="user"><a href="edit/" alt=""><br />Click here to edit profile.</a></div>
+        </div>
+        <div id="table">
+            {% block table %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

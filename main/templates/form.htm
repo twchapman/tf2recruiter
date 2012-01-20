@@ -1,0 +1,22 @@
+{% extends "base.htm" %}
+{% block table %}
+        <table>
+            <thead>
+                <tr><th>Edit Profile</th></tr>
+            </thead>
+            <form action="{{ action }}" method="POST">
+            {% csrf_token %}
+            <tbody>
+                {% if form.errors %}<tr class='alt'><td colspan="2">{{ form.errors }}</td></tr>{% endif %}
+                {% for f in form %}
+                    <tr class="{% cycle '' 'alt' %}">
+                        <td>{{ f.label_tag }}</td><td>{{ f }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr><th><input type="image" name="submit" src="{{ STATIC_URL }}submit.png" /></th></tr>
+            </tfoot>
+            </form>
+        </table>
+{% endblock %}

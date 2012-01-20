@@ -1,0 +1,16 @@
+{% extends "base.htm" %}
+{% block table %}
+        <table>
+            <thead>
+                <tr><th width="25%">Player Alias</th><th width="15%">Classes</th><th width="15%">Leagues</th><th width="15%">Seasons</th><th width="15%">+frags</th><th width="15%">Available</th></tr>
+            </thead>
+            <tbody>
+                {% for p in players %}
+                    <tr class="{% cycle '' 'alt' %}"><td><a href="http://steamcommunity.com/profiles/{{ p.user }}">{{ p.alias }}</a></td><td><a href="http://steamcommunity.com/profiles/{{ p.user }}/stats/TF2">{% for c in p.cs %}<img src="{{ STATIC_URL }}{{ c }}.png" />{% endfor %}</a></td><td class="league">{% if p.esea %}<a href="http://esea.net/users/{{ p.eseaid }}"><img src="{{ STATIC_URL }}esea.png" /><img src="{{ STATIC_URL }}{{ p.esea }}.png" /></a>{% endif %}</td><td>{{ p.seasons }}</td><td class="league">{{ p.fs }}&nbsp;{% if not p.f %}<a href="/recommend/{{ p.id }}/">+</a>{% endif %}</td><td><!--<a href="/schedule/{{ p }}/">-->{{ p.days }}<!--</a>--></td></tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr><td colspan="5"></td></tr>
+            </tfoot>
+        </table>
+{% endblock %}
